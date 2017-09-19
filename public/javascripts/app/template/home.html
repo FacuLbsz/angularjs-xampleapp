@@ -1,0 +1,30 @@
+
+<md-sidenav md-component-id="left" class="md-sidenav-left">
+<md-toolbar class="md-hue-2">
+<div class="md-toolbar-tools" ng-controller="HomeController">
+	<h2 flex md-truncate>Menu</h2>
+</div>
+</md-toolbar> <md-list flex><md-list-item class="md-1-line"
+	ng-click="openLeftMenu()" ui-sref="home">
+<div class="md-list-item-text" layout="column">
+	<h4>Home</h4>
+</div>
+</md-list-item> <md-list-item class="md-1-line"
+	ng-click="openLeftMenu()" ui-sref="home.expenses">
+<div class="md-list-item-text" layout="column">
+	<h4>Gastos</h4>
+</div>
+</md-list-item> <md-divider></md-divider> </md-list></md-sidenav>
+<div layout="column" flex>
+	<md-toolbar class="md-hue-2">
+	<div class="md-toolbar-tools">
+		<md-button class="md-icon-button" aria-label="Settings"
+			ng-click=openLeftMenu()> <i class="material-icons">menu</i>
+		</md-button>
+		<h2 flex md-truncate id="toolbarTitle"></h2>
+
+	</div>
+	</md-toolbar>
+	<md-content md-scroll-y flex ui-view>
+	</md-content>
+</div>

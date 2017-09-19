@@ -1,0 +1,37 @@
+{
+  "name": "angularjs-xampleapp",
+  "version": "0.0.0",
+  "description": "A seed project with AngularJS to clone it and start developing properly.",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "start:open": "opn http://localhost:3000 && nodemon",
+    "prod": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "prod:open": "npm-run-all prod start:open",
+    "dev": "webpack --config webpack.config.js",
+    "dev:open": "npm-run-all dev start:open"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "cross-env": "^5.0.5",
+    "debug": "~2.6.3",
+    "ejs": "~2.5.6",
+    "express": "~4.15.2",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "angular": "^1.6.6",
+    "angular-animate": "^1.6.6",
+    "angular-aria": "^1.6.6",
+    "angular-material": "^1.1.5",
+    "angular-messages": "^1.6.6",
+    "angular-ui-router": "^1.0.3",
+    "ng-table": "^3.0.1",
+    "nodemon": "^1.12.1",
+    "npm-run-all": "^4.1.1",
+    "opn-cli": "^3.1.0",
+    "webpack": "^3.6.0"
+  }
+}

@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Lista de gastos</div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table ng-table="crudtableCtrl.tableParams" template-header="sample_ng_header" class="table table-hover">
+                <tr ng-repeat="item in crudtableCtrl.items">
+                    <td ng-repeat="column in crudtableCtrl.columns">
+                        {{item[column.field]}}</td>
+                    <td><button class="btn btn-default btn-sm" ng-click="crudtableCtrl.edit(item)"><span class="glyphicon glyphicon-pencil"></span></button>
+                        <button class="btn btn-danger btn-sm" ng-click="crudtableCtrl.remove(item)"><span class="glyphicon glyphicon-trash"></span></button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script id="sample_ng_header" type="text/ng-template">
+    <tr>
+        <th ng-repeat="column in crudtableCtrl.columns" ng-show="column.visible" class="text-center sortable" ng-class="{
+                    'sort-asc': tableParams.isSortBy(column.field, 'asc'),
+                    'sort-desc': tableParams.isSortBy(column.field, 'desc')
+                  }" ng-click="tableParams.sorting(column.field, tableParams.isSortBy(column.field, 'asc') ? 'desc' : 'asc')">
+            {{column.field}}
+        </th>
+        <!--<th>Columns:{{columns.length}}</th>-->
+    </tr>
+</script>
+<md-button class="md-fab md-fab-bottom-right" aria-label="Eat cake" ng-click="crudtableCtrl.showForm($event)">
+    <span class="glyphicon glyphicon-plus"></span>
+</md-button>

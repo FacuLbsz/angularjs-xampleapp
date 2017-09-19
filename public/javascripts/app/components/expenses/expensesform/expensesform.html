@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Gastos</div>
+	<div class="panel-body">
+		<div class="formcontainer">
+			<div class="alert alert-success" role="alert" ng-if="successMessage">{{successMessage}}</div>
+			<div class="alert alert-danger" role="alert" ng-if="errorMessage">{{errorMessage}}</div>
+			<form ng-submit="add()" name="expensesForm" class="form-horizontal">
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="uname">Place</label>
+						<div class="col-md-7">
+							<input type="text" ng-model="expense.title" id="place" class="username form-control input-sm" placeholder="place" required
+							/>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label class="col-md-2 control-lable" for="uname">Cuerpo</label>
+						<div class="col-md-7">
+							<textarea type="text" rows="5" ng-model="expense.body" id="value" class="username form-control input-sm" placeholder="value" required
+							/>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-2 pull-right">
+						<input type="submit" value="{{!expense._id ? 'Agregar' : 'Actualizar'}}" class="btn btn-primary btn-sm" ng-disabled="expensesForm.$invalid || expensesForm.$pristine">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>

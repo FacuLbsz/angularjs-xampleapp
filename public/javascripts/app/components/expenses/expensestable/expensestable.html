@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Lista de gastos</div>
+	<div class="panel-body">
+		<div class="table-responsive">
+			<table ng-table="tableParams" class="table table-hover">
+				<tr ng-repeat="expense in expenses">
+					<td title="'Place'">
+						{{expense.place}}</td>
+					<td title="'Value'">
+						{{expense.value}}</td>
+					<td><button class="btn btn-default btn-sm" ng-click="edit(expense)"><span class="glyphicon glyphicon-pencil"></span></button>
+						<button class="btn btn-danger btn-sm" ng-click="remove(expense)"><span class="glyphicon glyphicon-trash"></span></button></td>
+				</tr>
+			</table>
+		</div>
+		<div class="table-responsive">
+			<table ng-table="tableParams2" template-header="sample_ng_header" class="table table-hover">
+				<tr ng-repeat="item in items">
+					<td ng-repeat="column in columns">
+						{{item[column.field]}}</td>
+					<td><button class="btn btn-default btn-sm" ng-click="edit(expense)"><span class="glyphicon glyphicon-pencil"></span></button>
+						<button class="btn btn-danger btn-sm" ng-click="remove(expense)"><span class="glyphicon glyphicon-trash"></span></button></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<script id="sample_ng_header" type="text/ng-template">
+	<tr>
+		<th ng-repeat="column in columns" ng-show="column.visible" class="text-center sortable" ng-class="{
+				'sort-asc': tableParams.isSortBy(column.field, 'asc'),
+				'sort-desc': tableParams.isSortBy(column.field, 'desc')
+			  }" ng-click="tableParams.sorting(column.field, tableParams.isSortBy(column.field, 'asc') ? 'desc' : 'asc')">
+			{{column.field}}
+		</th>
+		<!--<th>Columns:{{columns.length}}</th>-->
+	</tr>
+</script>

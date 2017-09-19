@@ -1,0 +1,40 @@
+<md-dialog aria-label="Nuevo gasto">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h2>{{!formCtrl.entity.id ? 'Nuevo gasto' : 'Editar gasto'}}</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="formCtrl.cancel()">
+                <span class="glyphicon glyphicon-remove"></span>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+
+    <md-dialog-content style="width: 500px;">
+        <div class="md-dialog-content">
+            <form name="crudform">
+                <div ng-repeat="field in formCtrl.entity.fields">
+                    <ng-form name="subform">
+                        <!-- TEXT FIELDS -->
+                        <md-input-container class="md-block" ng-if="field.type=='text'">
+
+                            <label>{{field.label}}</label>
+                            <input type="{{ field.type }}" required dynamic-name="field.name" id="{{field.name}}" data-ng-model="field.data">
+                            <div ng-messages="subform[field.name].$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+
+
+
+                        </md-input-container>
+                    </ng-form>
+                </div>
+            </form>
+        </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+        <span flex></span>
+        <md-button ng-disabled="formCtrl.isValidForm()" ng-click="formCtrl.create()">{{!formCtrl.entity.id ? 'Crear' : 'Guardar'}}</md-button>
+    </md-dialog-actions>
+</md-dialog>
